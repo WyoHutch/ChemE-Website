@@ -1,0 +1,92 @@
+body {
+  margin: 0px;
+  font-family: "Arial", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
+}
+
+#headLogo {
+  color: #5a2d03;
+  margin: 2px;
+  font-family: "Times New Roman", Times, serif;
+  text-shadow: 2px 2px #e8a868;
+}
+
+.links_line {
+  display: flex;
+  column-count: 5;
+  margin-right: 150px;
+  height: 20px;
+  background-color: #087080;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+}
+
+.nav-link a {
+  color: #d0d0d0;
+  padding: 7px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: medium;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.nav-link a:hover {
+  color: #f0f0f0;
+  background-color: #043540;
+  font-size: 110%;
+  letter-spacing: 2px;
+  padding: 7px;
+  text-decoration: underline;
+}
+
+.right-column {
+  height: 100%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  right: 0;
+  background-color: #c8dcf0;
+  overflow-x: hidden;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.sidebarImgs img {
+  box-shadow: 4px 4px 2px grey;
+}
+
+.left-column {
+  margin-right: 140px;
+}
+
+.links_foot {
+  display: flex;
+  column-count: 5;
+  margin-right: 150px;
+  height: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+}
+
+.nav-foot a {
+  padding: 7px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: medium;
+  transition: 0.5s;
+}
+.nav-foot a:hover {
+  font-size: 110%;
+  letter-spacing: 2px;
+  padding: 7px;
+  text-decoration: none;
+}

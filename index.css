@@ -1,0 +1,35 @@
+.topPara {
+  margin: 2px;
+}
+
+.logo {
+  margin: 2px 6px 2px 0px;
+  display: flex;
+  width: 1fr 170px;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: #087080;
+}
+
+.logoTop {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.logoBottom {
+  margin: 0px 2px 0px 3px;
+}
+
+.info {
+  display: flex;
+  width: 1fr 1fr;
+  margin-top: 10px;
+}
+
+.info1 {
+  border: 1px solid #804208;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 4px;
+}
