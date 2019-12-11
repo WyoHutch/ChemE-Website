@@ -1,0 +1,16 @@
+.ug-header {
+  font-family: "Times New Roman", Times, serif;
+  margin: 6px 2px 18px 4px;
+}
+
+.upgrade-specs {
+  margin: 4px;
+  padding: 6px;
+  border: 2px solid gray;
+}
+
+h3 {
+  color: darkblue;
+  font-style: oblique;
+  margin-bottom: 2px;
+}
