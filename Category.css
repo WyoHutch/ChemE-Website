@@ -1,0 +1,38 @@
+.cat-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #90a090;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.cat-box a {
+  color: darkblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 10px 30px 20px 5px;
+  transition: 0.5s;
+}
+
+.cat-box a:hover {
+  text-decoration: underline;
+}
+
+.cat-WIP {
+  display: flex;
+  align-items: center;
+  border: 2px solid #c0a090;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.cat-WIP h3 {
+  color: chocolate;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 10px 30px 20px 5px;
+}

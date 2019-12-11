@@ -1,0 +1,32 @@
+.cat-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px;
+}
+
+.btnDownload {
+  height: 60px;
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.btnDownload a:hover {
+  cursor: pointer;
+}
+
+#apDesc {
+  margin-top: 0px;
+  margin-left: 16px;
+}
+
+.apPic {
+  margin: 6px;
+}
+
+.apPic img {
+  max-width: 100%;
+  height: auto;
+}

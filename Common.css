@@ -69,22 +69,18 @@ h5 {
 }
 
 .links_foot {
-  display: flex;
-  column-count: 5;
-  margin-right: 150px;
+  background-color: #202030;
   height: 20px;
-  justify-content: space-between;
-  align-items: center;
   padding: 12px 10px;
 }
 
-.nav-foot a {
+.links_foot a {
   padding: 7px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: medium;
+  font-size: large;
   transition: 0.5s;
 }
-.nav-foot a:hover {
+.links_foot a:hover {
   font-size: 110%;
   letter-spacing: 2px;
   padding: 7px;
