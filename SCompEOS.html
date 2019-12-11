@@ -2,16 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>App for Linear Regression</title>
-    <meta name="description" content="Unit Conversions" />
+    <title>App for Single Component EOS</title>
+    <meta name="description" content="Single Component EOS" />
     <meta
       name="keywords"
-      content="linear regression, regression analysis, two parameter regression, two parameter analysis"
+      content="equation of state, eos, component density, equilibrium phases, ideal gas deviation"
     />
-    <meta
-      name="keywords"
-      content="logarithmic, exponential, power, inverse, inverse linear"
-    />
+    <meta name="keywords" content="van der waals, redlich-kwong, soave, srk" />
+    <meta name="keywords" content="peng-robinson, stryjek-vera, prsv1, prsv2" />
+    <meta name="keywords" content="elliott-suresh-donohue, dieterici" />
     <meta name="author" content="Glenn Hutchinson" />
     <link rel="stylesheet" href="Common.css" />
     <link rel="stylesheet" href="AppPage.css" />
@@ -24,16 +23,16 @@
         <a href="index.html">Home</a>
       </div>
       <div class="nav-link">
-        <a href="math.html">Math</a>
+        <a href="Math.html">Math</a>
       </div>
       <div class="nav-link">
-        <a href="fflow.html">Flow</a>
+        <a href="Fflow.html">Flow</a>
       </div>
       <div class="nav-link">
-        <a href="thermo.html">Thermo</a>
+        <a href="Thermo.html">Thermo</a>
       </div>
       <div class="nav-link">
-        <a href="upgrade.html" style="margin-left: 40px;">Upgrades</a>
+        <a href="Upgrade.html" style="margin-left: 40px;">Upgrades</a>
       </div>
     </div>
 
@@ -105,21 +104,25 @@
 
     <div class="left-column">
       <div class="cat-head">
-        <h2>2 Parameter Regression</h2>
+        <h2>Single Component EOS</h2>
         <div class="btnDownload">
-          <a href="Files\LinRegress.exe" download>
+          <a href="Files\EqState1.exe" download>
             <img src="Images\Download.jpg" alt="Download" />
           </a>
         </div>
       </div>
       <p id="apDesc">
-        Two parameter regression analysis solving for eight different functions.
-        Functions are plotted as well as correlation coefficients calculated.
-        Functions include the temperature dependent Arrhenius equation, and
-        inverse functions.
+        Nine different equations of state are used to calculate molecular
+        volumes of both liquid and vapor phases at user specified temperatures
+        and pressures. Also, equilibrium conditions can be calculated for actual
+        two-phase systems. EOS's include Van der Waals, RK, SRK, PR, PRSV1 &amp;
+        2, etc.
       </p>
+      <i style="font-size: small; margin-left: 40px;"
+        >- Requires downloaded 'Components' database -</i
+      >
       <div class="apPic">
-        <img src="Images\LinRegreSS.jpg" alt="Linear Regression jpg" />
+        <img src="Images\EqState1SS.jpg" alt="EOS 1 jpg" />
       </div>
     </div>
 
@@ -127,7 +130,7 @@
       <div class="links_foot">
         <a
           style="color: rgb(210, 223, 139)"
-          href="contact.html"
+          href="Contact.html"
           style="margin-left: 40px;"
           >Contact</a
         >

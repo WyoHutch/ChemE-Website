@@ -2,11 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>App for Solving Roots</title>
-    <meta name="description" content="Equation Root Solver" />
-    <meta name="keywords" content="quadratic, cubic, quartic" />
-    <meta name="keywords" content="interpolation, extrapolation" />
-    <meta name="keywords" content="complex number math" />
+    <title>App for Fluid Dynamics</title>
+    <meta name="description" content="Fluid Dynamics" />
+    <meta
+      name="keywords"
+      content="fluid flow calculations, pressure loss calculations, fluid head loss"
+    />
+    <meta
+      name="keywords"
+      content="friction factor, fluid friction factor, reynolds number, moody diagram"
+    />
     <meta name="author" content="Glenn Hutchinson" />
     <link rel="stylesheet" href="Common.css" />
     <link rel="stylesheet" href="AppPage.css" />
@@ -100,21 +105,22 @@
 
     <div class="left-column">
       <div class="cat-head">
-        <h2>Equation Root Solver</h2>
+        <h2>Fluid Dynamics</h2>
         <div class="btnDownload">
-          <a href="Files\RootSolver.exe" download>
+          <a href="Files\FluidFlow.exe" download>
             <img src="Images\Download.jpg" alt="Download" />
           </a>
         </div>
       </div>
       <p id="apDesc">
-        Interpolation/extrapolation. Solve for the roots of quadratic, cubic,
-        and quartic equations, as well as finding the solutions to those
-        functions of x -&gt; y = f(x). Includes complex number math calculations
-        and solutions as well.
+        The friction factor for fluid flow, either compressible or
+        non-compressible, is calculated from the Reynolds number and pipe
+        roughness using equations modeling Moody's diagram. Pressure drop is
+        then calculated for the fluid flow in the entire pipe length, which may
+        include elbows.
       </p>
       <div class="apPic">
-        <img src="Images\RootSolverSS.jpg" alt="Conversions jpg" />
+        <img src="Images\FluidFlowSS.jpg" alt="Fluid Flow jpg" />
       </div>
     </div>
 
