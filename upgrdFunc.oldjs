@@ -1,16 +1,53 @@
 function downLoad(appNum) {
-  xmlhttp.open("GET", "download.php?q=" + appNum.toString(), true);
-  xmlhttp.send();
+    alert("Download clicked");
+    var mysql = require("mysql");
+    var con = mysql.createConnection({
+    host: "165.22.172.146",
+    // host: "localhost",
+    // user: "root",
+    // password: "laramie",
+    // database: "chemTest",
+    user: "chemesof_admin",
+    password: "Wyo4Hutch!",
+    database: "chemesof_db",
+    insecureAuth: true
+    });
+
+    con.connect(function(err) {
+        console.log("Download clicked3");
+        if (err) throw console.log(err);
+
+        console.log("Download clicked4");
+        var sql = "INSERT INTO Downloads (AppNum) VALUES ('" + appNum + "')";
+        console.log(sql);
+        con.query(sql, function(err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+        });
+        con.end();
+    });
 }
 
 function getAppID(appNum) {
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      appID = this.responseText;
-    }
-  xhttp.open("GET", "appID.php?q=" + appNum.toString(), true);
-  xhttp.send();
-  return appID
+  var userEM = "ghutchinson@digis.net";
+  var mysql = require("mysql");
+  var con = mysql.createConnection({
+    host: "165.22.172.146",
+    user: "chemesof_admin",
+    password: "Wyo4Hutch!",
+    database: "chemesof_db",
+    insecureAuth: true
+  });
+  con.connect(function(err) {
+    if (err) throw console.log(err);
+    var sql = "SELECT * FROM AppData WHERE AppNum = " + appNum;
+    con.query(sql, function(err, result, fields) {
+      if (err) throw err;
+      appID = result[0].AppID;
+      paidPwd = genPwd(userEM, appID);
+    });
+    con.end();
+  });
 }
 
 function upgrdApp(appNum, paybool) {
@@ -23,10 +60,35 @@ function upgrdApp(appNum, paybool) {
     return false;
   } else {
     if (paybool) {
-      appID = getAppID(appNum);
-      paidPwd = genPwd(userEM, appID);
-      xhttp.open("GET", "upgrddb.php?email=userEM&appnum=appNum&ugpwd=paidPwd", true);
-      xhttp.send();
+      var mysql = require("mysql");
+      var con = mysql.createConnection({
+        host: "localhost",
+        user: "chemesof_admin",
+        password: "Wyo4Hutch!",
+        database: "chemesof_db",
+        insecureAuth: true
+      });
+      con.connect(function(err) {
+        if (err) throw console.log(err);
+        var sql = "SELECT * FROM AppData WHERE AppNum = " + appNum;
+        con.query(sql, function(err, result, fields) {
+          if (err) throw err;
+          appID = result[0].AppID;
+          paidPwd = genPwd(userEM, appID);
+          var sql2 =
+            "INSERT INTO Upgrades (ugEmail, AppNum, ugPwd) VALUES ('" +
+            userEM +
+            "', " +
+            appNum +
+            ", '" +
+            paidPwd +
+            "')";
+          con.query(sql2, function(err, result, fields) {
+            if (err) throw console.log(err);
+          });
+        });
+        con.end();
+      });
       alert("Connecting to PayPal website for Order submittal");
     } else {
       freePwd = genPwd(userEM, "G0A0");

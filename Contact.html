@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Engineering and Math Apps</title>
+    <link rel="stylesheet" href="Common.css" />
+  </head>
+
+  <body>
+    <h2 id="headLogo">Right Solution for Real Applications</h2>
+    <div class="links_line">
+      <div class="nav-link">
+        <a href="index.html">Home</a>
+      </div>
+      <div class="nav-link">
+        <a href="Math.html">Math</a>
+      </div>
+      <div class="nav-link">
+        <a href="Fflow.html">Flow</a>
+      </div>
+      <div class="nav-link">
+        <a href="Thermo.html">Thermo</a>
+      </div>
+      <div class="nav-link">
+        <a href="Upgrade.html" style="margin-left: 40px;">Upgrades</a>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <h3>ChemE Soft Store</h3>
+      <div class="sidebarImgs">
+        <img
+          src="Images\Thermo1.jpg"
+          width="120"
+          height="120"
+          alt="Thermo Diagram"
+        />
+        <img
+          src="Images\MoodyDiagram2.jpg"
+          width="120"
+          height="120"
+          alt="Moody Diagram"
+        />
+      </div>
+      <div>
+        <img
+          src="Images\MaxwellsEqs0.png"
+          width="120"
+          height="120"
+          alt="Maxwells Equations"
+          style="margin-top:3px"
+        />
+        <hr style="margin: 1px;" />
+        <span style="font-size:10px;"
+          >CaCO<span style="vertical-align:sub;">3</span> -&gt; CaO + CO<span
+            style="vertical-align:sub;"
+            >2</span
+          >
+          <br />
+          NaCl + NH<span style="vertical-align:sub;">3</span> + CO<span
+            style="vertical-align:sub;"
+            >2</span
+          >
+          + H<span style="vertical-align:sub;">2</span>O -&gt; NaHCO<span
+            style="vertical-align:sub;"
+            >3</span
+          >
+          + NH<span style="vertical-align:sub;">4</span>Cl<br />
+          2 NaHCO<span style="vertical-align:sub;">3</span> -&gt; Na<span
+            style="vertical-align:sub;"
+            >2</span
+          >
+          CO<span style="vertical-align:sub;">3</span> + H<span
+            style="vertical-align:sub;"
+            >2</span
+          >O + CO<span style="vertical-align:sub;">2</span> <br />CaO + H<span
+            style="vertical-align:sub;"
+            >2</span
+          >
+          O -&gt; Ca(OH)<span style="vertical-align:sub;">2</span>
+          <br />Ca(OH)<span style="vertical-align:sub;">2</span> + 2 NH<span
+            style="vertical-align:sub;"
+            >4</span
+          >
+          Cl -&gt; CaCl<span style="vertical-align:sub;">2</span> + 2 NH<span
+            style="vertical-align:sub;"
+            >3</span
+          >
+          + 2 H<span style="vertical-align:sub;">2</span>O</span
+        >
+        <br />
+      </div>
+    </div>
+
+    <div class="left-column">
+        <?php
+        // define variables and set to empty values
+        $nameErr = $emailErr = $genderErr = $websiteErr = "";
+        $name = $email = $gender = $comment = $website = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["name"])) {
+            $nameErr = "Name is required";
+        } else {
+            $name = test_input($_POST["name"]);
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+            $nameErr = "Only letters and white space allowed";
+            }
+        }
+        
+        if (empty($_POST["email"])) {
+            $emailErr = "Email is required";
+        } else {
+            $email = test_input($_POST["email"]);
+            // check if e-mail address is well-formed
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+            }
+        }
+    
+        if (empty($_POST["website"])) {
+            $website = "";
+        } else {
+            $website = test_input($_POST["website"]);
+            // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+            if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+            $websiteErr = "Invalid URL";
+            }
+        }
+
+        if (empty($_POST["comment"])) {
+            $comment = "";
+        } else {
+            $comment = test_input($_POST["comment"]);
+        }
+
+        if (empty($_POST["gender"])) {
+            $genderErr = "Gender is required";
+        } else {
+            $gender = test_input($_POST["gender"]);
+        }
+        }
+
+        function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+        }
+        ?>
+
+        <h2>PHP Form Validation Example</h2>
+        <p><span class="error">* required field</span></p>
+        <form method="post" action="
+            <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+        Name: <input type="text" name="name" value="<?php echo $name;?>">
+        <span class="error">* <?php echo $nameErr;?></span>
+        <br><br>
+        E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+        <span class="error">* <?php echo $emailErr;?></span>
+        <br><br>
+        Website: <input type="text" name="website" value="<?php echo $website;?>">
+        <span class="error"><?php echo $websiteErr;?></span>
+        <br><br>
+        Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+        <br><br>
+        Gender:
+        <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
+        <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
+        <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
+        <span class="error">* <?php echo $genderErr;?></span>
+        <br><br>
+        <input type="submit" name="submit" value="Submit">  
+        </form>
+
+        <?php
+        echo "<h2>Your Input:</h2>";
+        echo $name;
+        echo "<br>";
+        echo $email;
+        echo "<br>";
+        echo $website;
+        echo "<br>";
+        echo $comment;
+        echo "<br>";
+        echo $gender;
+        ?>
+    </div>
+  </body>
+</html>

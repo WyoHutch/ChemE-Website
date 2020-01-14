@@ -78,16 +78,16 @@ if (strcmp($res, "VERIFIED") == 0)
     //echo $key." = ". $value."<br>";}
 
     //$conn=mysqli_connect("localhost","root","","chemesoft") or die (mysqli_connect_error());
-    $conn = mysqli_connect('chemesoftstorecom.ipagemysql.com', 'ghutch', 'Wyo=Hutch14', "chemesoft") or die(mysqli_connect_error());
-    $sql = "SELECT * FROM `upgrades` WHERE `AppID`=" . $item_number . " and `PayPalIPN`=\"\"";
+    $conn = mysqli_connect('localhost', 'root', 'laramie', "chemtest") or die(mysqli_connect_error());
+    $sql = "SELECT * FROM Upgrades WHERE AppNum=" . $item_number . " and PayPalIPN IS NULL";
     //	echo $sql."<br>";
     $qryresult = mysqli_query($conn, $sql);
     $row = mysqli_fetch_row($qryresult);
     $upemail = $row[2];
     //	echo $upemail."<br>";
-    $macpwd = $row[4];
-    //	echo $macpwd."<br>";
-    $sql = "UPDATE `upgrades` SET `PayPalIPN`='" . $txn_id . "', `Price`=" . $payment_amount . ", `PPEmail`='" . $payer_email . "' WHERE `AppID`=" . $item_number . " and `PayPalIPN`=\"\"";
+    $ugPwd = $row[4];
+    //	echo $ugPwd."<br>";
+    $sql = "UPDATE Upgrades SET PayPalIPN='" . $txn_id . "', Price=" . $payment_amount . " WHERE AppNum=" . $item_number . " and PayPalIPN IS NULL";
     //	echo $sql."<br>";
     mysqli_query($conn, $sql);
     mysqli_close($conn);
@@ -107,7 +107,7 @@ if (strcmp($res, "VERIFIED") == 0)
 
     $reqa = "Thank you for the purchase of your upgrade for the " . $appname[$item_number] . " app. To upgrade, open the app and click UPGRADE, ";
     $reqb = "enter your e-mail address (" . $upemail . ") and password." . PHP_EOL;
-    $reqc = "UPGRADE PASSWORD -  " . $macpwd . PHP_EOL . PHP_EOL;
+    $reqc = "UPGRADE PASSWORD -  " . $ugPwd . PHP_EOL . PHP_EOL;
     $reqd = "Your PayPal charge is $" . $payment_amount;
     $reqz = wordwrap($reqa . $reqb . $reqc . $reqd, 60);
     //    echo $reqz;
