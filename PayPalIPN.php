@@ -77,18 +77,13 @@ if (strcmp($res, "VERIFIED") == 0)
     //foreach($_POST as $key => $value) {
     //echo $key." = ". $value."<br>";}
 
-    //$conn=mysqli_connect("localhost","root","","chemesoft") or die (mysqli_connect_error());
     $conn = mysqli_connect('localhost', 'root', 'laramie', "chemtest") or die(mysqli_connect_error());
     $sql = "SELECT * FROM Upgrades WHERE AppNum=" . $item_number . " and PayPalIPN IS NULL";
-    //	echo $sql."<br>";
     $qryresult = mysqli_query($conn, $sql);
     $row = mysqli_fetch_row($qryresult);
-    $upemail = $row[2];
-    //	echo $upemail."<br>";
-    $ugPwd = $row[4];
-    //	echo $ugPwd."<br>";
+    $upemail = $row['UGEmail'];
+    $ugPwd = $row['UGPwd'];
     $sql = "UPDATE Upgrades SET PayPalIPN='" . $txn_id . "', Price=" . $payment_amount . " WHERE AppNum=" . $item_number . " and PayPalIPN IS NULL";
-    //	echo $sql."<br>";
     mysqli_query($conn, $sql);
     mysqli_close($conn);
 
@@ -113,7 +108,7 @@ if (strcmp($res, "VERIFIED") == 0)
     //    echo $reqz;
 
     //    Send an email to the Customer with Upgrade password
-    $mail_From    = "From: upgrades@chemesoftstore.com";
+    $mail_From    = "From: upgrade@chemesoftstore.com";
     $mail_To      = $upemail;
     $mail_Subject = "ChemE Soft Store App Upgrade Password";
     $mail_Body    = $reqz;
@@ -141,7 +136,7 @@ if (strcmp($res, "VERIFIED") == 0)
     //    echo $resz;
 
     // Send an email announcing the IPN message is INVALID
-    $mail_From    = "upgrades@chemesoftstore.com";
+    $mail_From    = "upgrade@chemesoftstore.com";
     $mail_To      = $upemail;
     $mail_Subject = "ChemE Soft Store App Upgrade PayPal INVALID";
     $mail_Body    = $reqz;

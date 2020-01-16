@@ -5,24 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Browser Preview: Launch",
       "type": "browser-preview",
       "request": "launch",
-      "name": "Browser Preview: Launch",
       "url": "http://localhost:3000"
     },
     {
       "name": "Listen for XDebug",
       "type": "php",
       "request": "launch",
-      "port": 9000
-    },
-    {
-      "name": "Launch currently open script",
-      "type": "php",
-      "request": "launch",
       "program": "${file}",
       "cwd": "${fileDirname}",
-      "port": 9000
+      "port": 9000,
+      "runtimeExecutable": "C:\\php\\php.exe"
     }
   ]
 }
