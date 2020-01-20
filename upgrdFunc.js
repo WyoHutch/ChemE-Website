@@ -16,7 +16,6 @@ async function upgrdApp(appNum, paybool) {
     if (paybool) {
       var appID = await getAppID(appNum);
       var paidPwd = await genPwd(userEM, appID);
-      console.log(appID, paidPwd);
       xhttp = new XMLHttpRequest();
       xhttp.open(
         "GET",
@@ -33,21 +32,21 @@ async function upgrdApp(appNum, paybool) {
     } else {
       var freePwd = await genPwd(userEM, "G0A0");
       sendPwd(userEM, freePwd);
-      alert("Sending UPGRADE password (" + freePwd + ") to '" + userEM + "'");
+      alert("Sending UPGRADE password to '" + userEM + "'");
     }
   }
 }
 
 function getAppID(appNum) {
   xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "appID.php?q=" + appNum.toString(), false);
+  xhttp.open("GET", "appID.php?q=" + appNum.toString(), true);
   xhttp.send();
   return xhttp.responseText;
 }
 
 function genPwd(email, appID) {
   xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "pwdGener.php?email=" + email + "&appid=" + appID, false);
+  xhttp.open("GET", "pwdGener.php?email=" + email + "&appid=" + appID, true);
   xhttp.send();
   return xhttp.responseText;
 }

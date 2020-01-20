@@ -1,6 +1,6 @@
 <?php
-$upemail = $_REQUEST["emailaddr"];
-$ugPwd = $_REQUEST["ugpwd"];
+$upemail = $_REQUEST["q"];
+$ugPwd = $_REQUEST["p"];
 $reqa = "Thank you for using the Conversions app. To unlock full functionality, open the app and click UPGRADE, ";
 $reqb = "enter your e-mail address (" . $upemail . ") and password." . PHP_EOL;
 $reqc = "UPGRADE PASSWORD -  " . $ugPwd . PHP_EOL . PHP_EOL;
